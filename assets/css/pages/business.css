@@ -9,7 +9,7 @@
   aspect-ratio: 1.92;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: var(--bg-inverse);
+  --lens-at: 66% 50%;
 }
 .bhero__film {
   width: 100%;
@@ -17,16 +17,13 @@
   object-fit: cover;
   filter: var(--art-tone);
 }
-.bhero__cover::after {
+.bhero__cover::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    var(--scrim-ink-80) 0%,
-    var(--scrim-ink-40) 46%,
-    var(--scrim-ink-12) 100%
-  );
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--scrim-ink-40) 0%, transparent 38%);
 }
 .bhero__say {
   position: absolute;
@@ -39,11 +36,12 @@
 }
 .bhero__unit {
   margin: 0 0 var(--sp-3);
+  font-family: var(--font-serif);
   font-size: var(--fs-label);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: 400;
+  letter-spacing: var(--tracking-serif-caps);
   color: var(--text-on-inverse);
-  opacity: 0.76;
+  opacity: 0.8;
 }
 .bhero__title {
   margin: 0;
@@ -109,10 +107,16 @@
   .bhero__cover {
     aspect-ratio: 4 / 3;
   }
+  .bhero__film {
+    object-position: 100% 50%;
+  }
 }
 @media (max-width: 640px) {
   .bhero__cover {
     aspect-ratio: 4 / 5;
+  }
+  .bhero__film {
+    object-position: 80% 50%;
   }
   .bhero__title {
     max-width: none;
@@ -147,9 +151,4 @@
 }
 .scope__boundary .eyebrow {
   margin-bottom: var(--sp-4);
-}
-@media (max-width: 860px) {
-  .bhero__film[poster*="/cover-cloud."] {
-    object-position: 80% 50%;
-  }
 }
