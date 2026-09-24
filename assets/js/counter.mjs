@@ -33,7 +33,7 @@ export function initCounters() {
   // 낱장이 아니라 판 단위로 센다. 숫자마다 따로 걸면 맨 아래 칸이 화면 밑선에 걸치는 순간
   // 그 숫자만 먼저 돌아 흩어지고, 스크롤이 빠르면 눈이 닿을 때는 이미 끝나 있다.
   // 판이 화면 아래 15% 선을 넘어 들어왔을 때 여섯이 같이 오른다.
-  const boards = new Set(nodes.map((n) => n.closest(".bento, .stats, .figs") ?? n));
+  const boards = new Set(nodes.map((n) => n.closest(".bento") ?? n));
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {

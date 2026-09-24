@@ -8,7 +8,7 @@
 .hyr__stage {
   position: sticky;
   top: calc(var(--header-h, 64px) + var(--sp-5));
-  height: min(76vh, 680px);
+  height: min(72vh, 640px);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -16,44 +16,44 @@
   gap: var(--sp-4);
   padding: var(--sp-7);
   border-radius: var(--radius-lg);
+  --stage-pad: var(--sp-3);
   overflow: hidden;
-  color: var(--text-on-inverse);
+  isolation: isolate;
+  background: var(--stage-ground, var(--bg-band));
 }
-.hyr__lens {
+.hyr__stage::before {
+  content: "";
   position: absolute;
-  top: 8%;
-  left: 50%;
-  width: min(62%, 52vh);
-  translate: -50% 0;
+  inset: var(--stage-pad) var(--stage-pad) auto;
+  aspect-ratio: var(--stage-ratio, 16 / 9);
+  z-index: -1;
+  border-radius: calc(var(--radius-lg) - var(--stage-pad));
+  background-image: var(--stage-media, none);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.hyr__lens > img {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity var(--dur-content) var(--ease);
-}
-.hyr__lens > img.is-on {
-  opacity: 1;
+.hyr__stage--company {
+  --stage-media: url("/saltware-prototype2/media/company/history.jpg?v=758f40123c2a");
+  --stage-ratio: 1600 / 898;
+  --stage-ground: var(--c-field-sand);
 }
 .hyr__num {
-  position: relative;
-  color: var(--text-on-inverse);
-  font-family: var(--font-serif);
-  font-size: clamp(64px, 8vw, 132px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-size: clamp(64px, 9vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .hyr__span {
-  position: relative;
   display: flex;
   align-items: center;
   gap: var(--sp-3);
 }
 .hyr__end {
   flex: none;
-  color: var(--text-on-inverse);
+  color: var(--text-primary);
   font-size: var(--fs-sm);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -64,7 +64,7 @@
   flex: 1;
   height: 2px;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--text-on-inverse) 26%, transparent);
+  background: rgb(var(--c-neutral-900-rgb) / 0.22);
 }
 .hyr__dot {
   position: absolute;
@@ -73,7 +73,7 @@
   width: 10px;
   height: 10px;
   border-radius: var(--radius-circle);
-  background: var(--c-accent-500);
+  background: var(--text-primary);
   translate: -50% -50%;
   transition: left 0.42s var(--ease);
 }
@@ -102,9 +102,8 @@
   border-top: 1px solid var(--border-hair);
 }
 .hyr__mark {
-  font-family: var(--font-serif);
   font-size: var(--fs-h2);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1;
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
@@ -143,16 +142,9 @@
     gap: var(--sp-5);
   }
   .hyr__stage {
-    height: 34vh;
+    height: 38vh;
     top: var(--header-h, 64px);
-    padding: var(--sp-5);
-  }
-  .hyr__lens {
-    top: 50%;
-    left: auto;
-    right: var(--sp-5);
-    width: min(44%, 26vh);
-    translate: 0 -50%;
+    padding: var(--sp-6);
   }
   .hyr__num {
     font-size: clamp(40px, 11vw, 72px);

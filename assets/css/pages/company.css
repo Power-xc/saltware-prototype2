@@ -1,8 +1,43 @@
 
+.feat--company {
+  --card-media: url("/saltware-prototype2/media/company/hub-feature.jpg?v=758f40123c2a");
+}
+.hub-card--company-capabilities {
+  --card-media: url("/saltware-prototype2/media/company/card-capabilities.jpg?v=758f40123c2a");
+}
+.hub-card--company-esg {
+  --card-media: url("/saltware-prototype2/media/company/card-esg.jpg?v=758f40123c2a");
+}
+.hub-card--company-partners {
+  --card-media: url("/saltware-prototype2/media/company/card-partners.jpg?v=758f40123c2a");
+}
+.hub-card--company-history {
+  --card-media: url("/saltware-prototype2/media/company/card-history.jpg?v=758f40123c2a");
+}
+.hub-card--company-ir {
+  --card-media: url("/saltware-prototype2/media/company/card-ir.jpg?v=758f40123c2a");
+}
+.hub-card--company-careers {
+  --card-media: url("/saltware-prototype2/media/company/card-careers.jpg?v=758f40123c2a");
+}
+.hub-card--company-location {
+  --card-media: url("/saltware-prototype2/media/company/card-location.jpg?v=758f40123c2a");
+}
+.hub-card--company-brand {
+  --card-media: url("/saltware-prototype2/media/company/card-brand.jpg?v=758f40123c2a");
+}
+@media (min-width: 1080px) {
+  .hub-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 .cstats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sp-6) var(--sp-5);
+}
+.section__aside .cstats {
+  margin-top: var(--sp-1);
 }
 .cstat__num {
   margin: 0;
@@ -306,20 +341,21 @@
 }
 .cpils__frame {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: block;
   height: 100%;
   min-height: 420px;
   max-height: 78vh;
   overflow: hidden;
   border-radius: var(--radius-lg);
-}
-.cpils__lens {
-  width: min(84%, 60vh);
+  background: var(--bg-band);
 }
 .cpils__shot {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.02);
   opacity: 0;
   transition: opacity var(--dur-content) var(--ease);
 }
@@ -574,6 +610,75 @@ html.js-pillars .cpil:not(.is-on) .cpil__desc {
     font-size: var(--fs-sm);
   }
 }
+.cclose--art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 0;
+}
+.cclose--art::before,
+.cclose--art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.cclose--art::before {
+  z-index: -2;
+  background-image: url("/saltware-prototype2/media/hub/hub-insights.jpg?v=758f40123c2a");
+  background-position: center;
+  background-size: cover;
+  filter: var(--art-tone);
+}
+.cclose--art::after {
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.62) 0%,
+    rgb(0 0 0 / 0.72) 60%,
+    rgb(0 0 0 / 0.82) 100%
+  );
+}
+.cclose .cclose__in {
+  color: var(--text-on-inverse);
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--section-py) var(--sp-6);
+  text-align: start;
+}
+.cclose h2 {
+  margin: 0 0 var(--sp-4);
+  color: var(--text-on-inverse);
+  max-width: 30ch;
+}
+.cclose p {
+  margin: 0 0 var(--sp-6);
+  max-width: 60ch;
+  font-size: var(--fs-lede);
+  line-height: var(--lh-lede);
+  color: var(--text-on-inverse-muted);
+}
+.cclose .btn {
+  color: var(--text-accent-on-inverse);
+  border-color: var(--border-inverse);
+}
+.cclose .btn:hover {
+  border-color: var(--text-accent-on-inverse);
+  background: transparent;
+}
+.cclose .btn--solid {
+  background: var(--c-white);
+  border-color: var(--c-white);
+  color: var(--text-primary);
+}
+.cclose .btn--solid:hover {
+  background: var(--c-neutral-200);
+  border-color: var(--c-neutral-200);
+}
+.cclose--art::before {
+  translate: 0 calc(var(--py, 0) * 100%);
+  inset: -20% 0;
+  will-change: translate;
+}
 html.js-reveal [data-reveal]:not(.is-in) > * {
   translate: 0 40px;
 }
@@ -583,4 +688,7 @@ html.js-reveal [data-reveal]:not(.is-in) > * {
 }
 html.js-reveal [data-reveal]:not(.is-in) > .cstat {
   scale: 0.97;
+}
+.company-about .cpils__shot {
+  object-fit: contain;
 }
