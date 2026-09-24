@@ -2454,7 +2454,7 @@ a.tile .tile__desc {
   line-height: 1.4;
 }
 .feat--art {
-  --card-media: url("/saltware-prototype2/media/insight/feature.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/feature.jpg?v=1463d0a74907");
 }
 .feat[class*="feat--"] .feat__lead::before {
   content: "";
@@ -2690,19 +2690,19 @@ a.tile .tile__desc {
   }
 }
 .hub-card--cases {
-  --card-media: url("/saltware-prototype2/media/insight/card-cases.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/card-cases.jpg?v=1463d0a74907");
 }
 .hub-card--industry {
-  --card-media: url("/saltware-prototype2/media/insight/card-industry.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/card-industry.jpg?v=1463d0a74907");
 }
 .hub-card--report {
-  --card-media: url("/saltware-prototype2/media/insight/card-report.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/card-report.jpg?v=1463d0a74907");
 }
 .hub-card--library {
-  --card-media: url("/saltware-prototype2/media/insight/card-library.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/card-library.jpg?v=1463d0a74907");
 }
 .hub-card--news {
-  --card-media: url("/saltware-prototype2/media/insight/card-news.jpg?v=115090bb67e9");
+  --card-media: url("/saltware-prototype2/media/insight/card-news.jpg?v=1463d0a74907");
 }
 .hubcol {
   display: flex;

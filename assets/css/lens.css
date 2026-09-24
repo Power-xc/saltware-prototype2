@@ -1,21 +1,21 @@
 
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-regular.woff2?v=115090bb67e9) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-regular.woff2?v=1463d0a74907) format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-italic.woff2?v=115090bb67e9) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-italic.woff2?v=1463d0a74907) format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-semibold.woff2?v=115090bb67e9) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-semibold.woff2?v=1463d0a74907) format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -143,6 +143,13 @@
   .lens--cycle > img:nth-child(4) {
     animation-delay: 21s;
   }
+  .lens--cycle5 > img {
+    animation-name: lens-cycle5;
+    animation-duration: 35s;
+  }
+  .lens--cycle > img:nth-child(5) {
+    animation-delay: 28s;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .lens--cycle > img:not(:first-child) {
@@ -158,6 +165,19 @@
     opacity: 1;
   }
   30%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes lens-cycle5 {
+  0% {
+    opacity: 0;
+  }
+  4%,
+  20% {
+    opacity: 1;
+  }
+  24%,
   100% {
     opacity: 0;
   }
