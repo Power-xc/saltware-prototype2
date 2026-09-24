@@ -6,12 +6,13 @@
 //
 // 없어도 되는 기능이다. 이 파일이 안 돌면 왼쪽은 첫 해에 멈추고, 오른쪽 연혁은
 // 덩이마다 제 연도를 이고 있어 그대로 다 읽힌다.
-import { scrollStage } from "./frame.mjs?v=e05054511cfa";
+import { scrollStage } from "./frame.mjs?v=2b04d290b004";
 
 export function initYearStage() {
   for (const box of document.querySelectorAll("[data-year-stage]")) {
     const out = box.querySelector("[data-year-out]");
     const dot = box.querySelector("[data-year-dot]");
+    const imgs = [...box.querySelectorAll("[data-year-img]")];
     const steps = [...box.querySelectorAll("[data-year]")];
     if (!out || steps.length < 2) continue;
 
@@ -35,6 +36,9 @@ export function initYearStage() {
       void out.offsetWidth;
       out.classList.add("is-turn");
       for (const s of steps) s.classList.toggle("is-now", s === now);
+      // 렌즈의 그림도 그해의 장으로 — 없는 해는 건드리지 않아 앞 장이 남는다.
+      if (imgs.some((i) => i.dataset.yearImg === year))
+        for (const i of imgs) i.classList.toggle("is-on", i.dataset.yearImg === year);
       // 눈금 위의 점. 왼쪽 끝이 가장 오래된 해라 목록 순서(최신순)를 뒤집어 잰다.
       // 연도 값의 크기가 아니라 칸 수로 잰다 — 2003 과 2011 사이가 비어 있어도
       // 점이 한참 멈춰 있지 않고 한 칸씩 고르게 움직인다.

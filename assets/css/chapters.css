@@ -1,8 +1,20 @@
 
-.chap {
+.chap,
+.section {
   --hair: color-mix(in srgb, currentColor 14%, transparent);
   --hair-strong: color-mix(in srgb, currentColor 32%, transparent);
   --row-hover: color-mix(in srgb, currentColor 4%, transparent);
+}
+main {
+  counter-reset: chap;
+}
+.chap__head {
+  counter-increment: chap;
+}
+.chap__head--auto .chap__n::before {
+  content: counter(chap, decimal-leading-zero);
+}
+.chap {
   position: relative;
   padding-block: clamp(72px, 8vw, 128px);
   color: var(--text-primary);
@@ -623,6 +635,68 @@ a.xrow:has(.xrow__peek):hover .xrow__desc {
   line-height: 1.42;
   letter-spacing: -0.015em;
 }
+.atlas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--sp-5);
+  row-gap: var(--sp-8);
+}
+.atlas--c3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.atlas__item {
+  display: grid;
+  align-content: start;
+  gap: var(--sp-2);
+  color: inherit;
+  text-decoration: none;
+}
+.atlas__item--bare {
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--hair-strong);
+}
+.atlas__plate {
+  aspect-ratio: 1;
+  margin-bottom: var(--sp-3);
+  border-radius: var(--radius-lg);
+}
+.atlas__plate .lens > img {
+  transition: scale var(--dur-content) var(--ease-out);
+}
+.atlas__item:hover .atlas__plate .lens > img {
+  scale: 1.05;
+}
+.atlas__tag {
+  font-family: var(--font-serif);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-serif-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.atlas__title {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-size: clamp(20px, 1.6vw, 24px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.atlas__go {
+  color: var(--text-muted);
+  transition:
+    translate var(--dur-hover) var(--ease),
+    color var(--dur-hover) var(--ease);
+}
+.atlas__item:hover .atlas__go {
+  translate: 3px 0;
+  color: var(--text-accent);
+}
+.atlas__desc {
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
 @media (max-width: 1080px) {
   .rings {
     grid-template-columns: minmax(0, 1fr);
@@ -632,7 +706,9 @@ a.xrow:has(.xrow__peek):hover .xrow__desc {
     justify-self: center;
   }
   .prods,
-  .posters {
+  .posters,
+  .atlas,
+  .atlas--c3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .figs {
@@ -694,6 +770,16 @@ a.xrow:has(.xrow__peek):hover .xrow__desc {
   }
 }
 @media (max-width: 640px) {
+  .atlas {
+    column-gap: var(--sp-4);
+    row-gap: var(--sp-6);
+  }
+  .atlas__title {
+    font-size: 17px;
+  }
+  .atlas__desc {
+    font-size: var(--fs-xs);
+  }
   .prod {
     min-height: 148px;
     padding: var(--sp-4);
@@ -738,7 +824,32 @@ a.xrow:has(.xrow__peek):hover .xrow__desc {
   .xrow,
   .xrow__peek,
   .spec__plate .lens > img,
+  .atlas__plate .lens > img,
   .poster__img {
     transition: none;
   }
+}
+.card--band:not(.card--ink) {
+  padding: var(--sp-5) 0 0;
+  border-top: 1px solid var(--hair-strong);
+  border-radius: 0;
+  background: transparent;
+}
+.grid:has(> .card--band) {
+  column-gap: var(--sp-6);
+  row-gap: var(--sp-7);
+}
+.card--band .card__title {
+  font-size: clamp(19px, 1.5vw, 22px);
+  font-weight: 650;
+  letter-spacing: -0.018em;
+}
+.card--band:not(.card--ink) > .plate.card__art {
+  width: 100%;
+  margin: 0 0 var(--sp-2);
+  border-radius: var(--radius-lg);
+}
+.card--band:not(.card--ink) .card__glyph {
+  top: var(--sp-5);
+  right: 0;
 }

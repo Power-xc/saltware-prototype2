@@ -1,42 +1,32 @@
 
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-regular.woff2?v=1463d0a74907) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-regular.woff2?v=944b9d81d5e9) format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-italic.woff2?v=1463d0a74907) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-italic.woff2?v=944b9d81d5e9) format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Salt Serif";
-  src: url(/saltware-prototype2/brand/fonts/salt-serif-semibold.woff2?v=1463d0a74907) format("woff2");
+  src: url(/saltware-prototype2/brand/fonts/salt-serif-semibold.woff2?v=944b9d81d5e9) format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 .eyebrow,
-.story__tag,
-.brief__tag,
 .il__tag,
 .press__tag,
 .nl__tag {
   font-family: var(--font-serif);
   font-weight: 400;
   letter-spacing: var(--tracking-serif-caps);
-}
-.serif {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: 0;
-}
-.serif--italic {
-  font-style: italic;
 }
 .lens {
   position: relative;
@@ -79,9 +69,6 @@
     transparent 100%
   );
   mix-blend-mode: screen;
-}
-.lens--light::before {
-  background: none;
 }
 @media (prefers-reduced-motion: no-preference) {
   .lens > img,
@@ -266,7 +253,6 @@
   max-width: var(--measure-lede);
   color: var(--text-secondary);
 }
-.closing .cta-row,
-.closing .btn-row {
+.closing .cta-row {
   margin-top: var(--sp-7);
 }
