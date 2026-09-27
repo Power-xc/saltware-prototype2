@@ -16,7 +16,7 @@
 // 두 벌을 한 함수로 합치지 않는다. 한 축 쪽은 "칩 줄의 바로 다음 형제가 목록"이라는
 // 자리 규약으로 도는데, 여러 축 판에서는 칩 줄 다음이 또 칩 줄이라 그 규약이 성립하지
 // 않는다. 판 안의 줄은 아래에서 건너뛴다.
-import { markFirstVisible } from "./rows.mjs?v=cac842042bc0";
+import { markFirstVisible } from "./rows.mjs?v=85378406dc7d";
 
 /* 여러 축. 판 하나가 칩 줄 N 개와 목록 상자 하나를 갖는다.
    JS 가 없으면 첫 칩만 눌린 채 전부 보인다 — 거르기가 죽어도 사례는 다 읽힌다. */
@@ -94,7 +94,11 @@ export function initFilters() {
         const key = chip.dataset.filterKey;
         for (const c of chips) c.setAttribute("aria-pressed", String(c === chip));
         for (const el of items) {
-          el.hidden = key !== "all" && el.dataset.filterGroup !== key;
+          const out = key !== "all" && el.dataset.filterGroup !== key;
+          el.hidden = out;
+          // 쪽 넘김이 같은 묶음에 걸려 있으면(pager.mjs) hidden 만으로는 "칩이 감춘 것"과
+          // "다른 쪽이라 감춘 것"이 갈리지 않는다 — 칩이 감춘 것에 표식을 따로 남긴다.
+          el.toggleAttribute("data-filter-out", out);
         }
         promote();
         // 줄 목록(.presses)에서는 감춘 뒤 맨 윗줄 표시를 다시 매긴다 — 그러지 않으면
