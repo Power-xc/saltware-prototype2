@@ -1,8 +1,8 @@
-import { initAnalytics } from "./analytics.mjs?v=85378406dc7d";
-import { initNav } from "./nav.mjs?v=85378406dc7d";
-import { initReveal } from "./reveal.mjs?v=85378406dc7d";
-import { initFaq, initCaseFilter, initFooterGroups } from "./disclosure.mjs?v=85378406dc7d";
-import { initAttribution } from "./attribution.mjs?v=85378406dc7d";
+import { initAnalytics } from "./analytics.mjs?v=510023ec138d";
+import { initNav } from "./nav.mjs?v=510023ec138d";
+import { initReveal } from "./reveal.mjs?v=510023ec138d";
+import { initFaq, initCaseFilter, initFooterGroups } from "./disclosure.mjs?v=510023ec138d";
+import { initAttribution } from "./attribution.mjs?v=510023ec138d";
 
 // 초기화 하나가 던져도 나머지는 산다 — 첫 화면 스크립트는 서로 독립이다.
 const run = (name, init) => {
@@ -27,31 +27,31 @@ const when = (sel, load) => {
   load().catch((e) => console.warn(`${sel} init failed:`, e));
 };
 when("[data-contact-form]", () =>
-  import("./contact-form.mjs?v=85378406dc7d").then(({ initContactForm }) => initContactForm()),
+  import("./contact-form.mjs?v=510023ec138d").then(({ initContactForm }) => initContactForm()),
 );
 when("[data-hcards]", () =>
-  import("./hero-object.mjs?v=85378406dc7d").then(({ initHeroObject }) => initHeroObject()),
+  import("./hero-object.mjs?v=510023ec138d").then(({ initHeroObject }) => initHeroObject()),
 );
 when("[data-newsletter-form]", () =>
-  import("./newsletter.mjs?v=85378406dc7d").then(({ initNewsletter }) => initNewsletter()),
+  import("./newsletter.mjs?v=510023ec138d").then(({ initNewsletter }) => initNewsletter()),
 );
-when("[data-bunav]", () => import("./bunav.mjs?v=85378406dc7d").then(({ initBunav }) => initBunav()));
-when("[data-rail]", () => import("./rail.mjs?v=85378406dc7d").then(({ initRails }) => initRails()));
-when("[data-filter]", () => import("./filters.mjs?v=85378406dc7d").then(({ initFilters }) => initFilters()));
-when("[data-count]", () => import("./counter.mjs?v=85378406dc7d").then(({ initCounters }) => initCounters()));
-when("[data-paged]", () => import("./pager.mjs?v=85378406dc7d").then(({ initPagers }) => initPagers()));
+when("[data-bunav]", () => import("./bunav.mjs?v=510023ec138d").then(({ initBunav }) => initBunav()));
+when("[data-rail]", () => import("./rail.mjs?v=510023ec138d").then(({ initRails }) => initRails()));
+when("[data-filter]", () => import("./filters.mjs?v=510023ec138d").then(({ initFilters }) => initFilters()));
+when("[data-count]", () => import("./counter.mjs?v=510023ec138d").then(({ initCounters }) => initCounters()));
+when("[data-paged]", () => import("./pager.mjs?v=510023ec138d").then(({ initPagers }) => initPagers()));
 when("[data-year-stage]", () =>
-  import("./year-stage.mjs?v=85378406dc7d").then(({ initYearStage }) => initYearStage()),
+  import("./year-stage.mjs?v=510023ec138d").then(({ initYearStage }) => initYearStage()),
 );
 when("[data-pillars]", () =>
-  import("./pillars.mjs?v=85378406dc7d").then(({ initPillars }) => initPillars()),
+  import("./pillars.mjs?v=510023ec138d").then(({ initPillars }) => initPillars()),
 );
-when("[data-stage]", () => import("./stage.mjs?v=85378406dc7d").then(({ initStage }) => initStage()));
-when("[data-parallax]", () => import("./parallax.mjs?v=85378406dc7d").then(({ initParallax }) => initParallax()));
+when("[data-stage]", () => import("./stage.mjs?v=510023ec138d").then(({ initStage }) => initStage()));
+when("[data-parallax]", () => import("./parallax.mjs?v=510023ec138d").then(({ initParallax }) => initParallax()));
 when("video[data-ambient]", () =>
-  import("./ambient-video.mjs?v=85378406dc7d").then(({ initAmbientVideo }) => initAmbientVideo()),
+  import("./ambient-video.mjs?v=510023ec138d").then(({ initAmbientVideo }) => initAmbientVideo()),
 );
-when("[data-spot]", () => import("./spot.mjs?v=85378406dc7d").then(({ initSpot }) => initSpot()));
-when("[data-reel]", () => import("./reel.mjs?v=85378406dc7d").then(({ initReels }) => initReels()));
-when("[data-intro]", () => import("./intro.mjs?v=85378406dc7d").then(({ initIntro }) => initIntro()));
+when("[data-spot]", () => import("./spot.mjs?v=510023ec138d").then(({ initSpot }) => initSpot()));
+when("[data-reel]", () => import("./reel.mjs?v=510023ec138d").then(({ initReels }) => initReels()));
+when("[data-intro]", () => import("./intro.mjs?v=510023ec138d").then(({ initIntro }) => initIntro()));
 
